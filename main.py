@@ -17,7 +17,7 @@ users_db = []
 async def root():
     return {"message":"woosah"}
 
-@app.post("/woosah")
+@app.post("/users")
 async def create_user(user: User):
     users_db.append(user)
     return {
@@ -25,6 +25,7 @@ async def create_user(user: User):
         "name":user.name,
         "email":user.email
     }
+
 @app.get("/users")
 async def get_user():
     return users_db
